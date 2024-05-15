@@ -47,9 +47,6 @@ hr {
     border-bottom: 1px solid var(--colorLightGrey);
 }
 
-header {
-}
-
 header h3 {
     text-shadow: 2px 2px 4px var(--colorOnline);
 }
@@ -97,29 +94,29 @@ input[type="submit"]:hover, input[type="button"]:hover, button:hover {
 }
 
 #scenes {
-}
+    &.error {
+        padding: 10px;
+        background: var(--bgErrorColor);
+        margin: 0 auto;
+        position: absolute;
+        font-size: 18px;
+        line-height: 28px;
+        top: 40px;
+        /* left: calc(50% - 320px);*/
+        width: 640px;
+        border-radius: 10px;
+        box-shadow: 2px 4px 4px var(--colorErrorRGBA),
+        2px -4px 4px var(--colorErrorRGBA),
+        -2px 4px 4px var(--colorErrorRGBA),
+        -2px -4px 4px var(--colorErrorRGBA);
 
-#scenes.error {
-    padding: 10px;
-    background: var(--bgErrorColor);
-    margin: 0 auto;
-    position: absolute;
-    font-size: 18px;
-    line-height: 28px;
-    top: 40px;
-    /* left: calc(50% - 320px);*/
-    width: 640px;
-    border-radius: 10px;
-    box-shadow: 2px 4px 4px var(--colorErrorRGBA),
-    2px -4px 4px var(--colorErrorRGBA),
-    -2px 4px 4px var(--colorErrorRGBA),
-    -2px -4px 4px var(--colorErrorRGBA);
-}
+        &::before {
+            content: "Fehler: ";
+            font-weight: 600;
+            color: var(--colorError);
+        }
+    }
 
-#scenes.error::before {
-    content: "Fehler: ";
-    font-weight: 600;
-    color: var(--colorError);
 }
 
 #options-field {
@@ -141,26 +138,29 @@ input[type="submit"]:hover, input[type="button"]:hover, button:hover {
     padding: 10px 0;
 }
 
-#options .btn-short {
-    width: 130px;
-    text-align: left;
-    padding-left: 24px;
-}
+#options {
 
-#options .btn-large {
-    position: relative;
-    width: 230px;
+    .btn-short {
+        width: 130px;
+        text-align: left;
+        padding-left: 24px;
+    }
+
+    .btn-large {
+        position: relative;
+        width: 230px;
+    }
 }
 
 .arrow-left {
     position: relative;
-}
 
-.arrow-left::before {
-    content: "\25C4";
-    position: absolute;
-    left: 4px;
-    font-size: 8pt;
+    &:before {
+        content: "\25C4";
+        position: absolute;
+        left: 4px;
+        font-size: 8pt;
+    }
 }
 
 .save::before {
@@ -174,25 +174,25 @@ input[type="submit"]:hover, input[type="button"]:hover, button:hover {
 .download {
     position: relative;
     padding-left: 24px;
-}
 
-.download::before {
-    content: "\1F4C1";
-    position: absolute;
-    top: 6px;
-    left: 4px;
+    &::before {
+        content: "\1F4C1";
+        position: absolute;
+        top: 6px;
+        left: 4px;
+    }
 }
 
 .revert {
     padding-left: 20px;
-}
 
-.revert::before {
-    content: "\021BA";
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    font-size: 18px;
+    &::before {
+        content: "\021BA";
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        font-size: 18px;
+    }
 }
 
 #saveScenesData {
@@ -205,6 +205,10 @@ input[type="submit"]:hover, input[type="button"]:hover, button:hover {
 
 .list-grid > div {
     display: table-row;
+
+    &:nth-child(even) {
+        background: var(--colorSecGray);
+    }
 }
 
 .list-grid > div > div {
@@ -212,33 +216,29 @@ input[type="submit"]:hover, input[type="button"]:hover, button:hover {
     display: table-cell;
 }
 
-.list-grid > div:nth-child(even) {
-    background: var(--colorSecGray);
-}
-
 .active .scene-name {
     position: relative;
     font-weight: 600;
     color: var(--highlight);
     text-shadow: 2px 2px 2px var(--shadowColor);
-}
-.active .scene-name {
     padding-left: 28px;
-}
-.active .scene-name::after {
-    content: "\01f3a5";
-    position: absolute;
-    left: 2px;
-    top: 14px;
-    font-size: 14px;
+
+    &::after {
+        content: "\01f3a5";
+        position: absolute;
+        left: 2px;
+        top: 14px;
+        font-size: 14px;
+    }
 }
 
 .dropzone .active .scene-name {
     padding-left: 22px;
-}
-.dropzone .active .scene-name::after {
-    top: 4px;
-    left: -6px;
+
+    &::after {
+        top: 4px;
+        left: -6px;
+    }
 }
 
 #game-preview {
@@ -254,37 +254,37 @@ input[type="submit"]:hover, input[type="button"]:hover, button:hover {
     max-height: 200px;
     min-width: 240px;
     width: auto;
-}
 
-#game-preview li {
-    background: var(--bgMainColor);
-    border-top: 1px solid var(--bgMainColor);
-    border-bottom: 1px solid var(--colorMainGray);
-    border-collapse: collapse;
-    display: inline-block;
-    width: 100%;
-    position: relative;
-    padding: 8px 8px 8px 38px;
-}
+    li {
+        background: var(--bgMainColor);
+        border-top: 1px solid var(--bgMainColor);
+        border-bottom: 1px solid var(--colorMainGray);
+        border-collapse: collapse;
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        padding: 8px 8px 8px 38px;
 
-#game-preview li a {
-    font-size: 13px;
-    color: #e0e0e0;
-}
+        a {
+            font-size: 13px;
+            color: #e0e0e0;
+        }
 
-#game-preview li:before {
-    content: "";
-    background: var(--bg-image) no-repeat 0 0;
-    position: absolute;
-    top: calc(50% - 16px);
-    left: 0;
-    background-size: cover;
-    width: 32px;
-    height: 32px;
+        &:before {
+            content: "";
+            background: var(--bg-image) no-repeat 0 0;
+            position: absolute;
+            top: calc(50% - 16px);
+            left: 0;
+            background-size: cover;
+            width: 32px;
+            height: 32px;
+        }
+    }
 }
 
 div[data-type="game-box"] {
-    position:relative;
+    position: relative;
 }
 
 .formElements {
@@ -327,18 +327,18 @@ div[data-type="game-box"] {
     height: 80px;
     left: calc(50% - 40px);
     top: calc(50% - 40px);
-}
 
-.lds-dual-ring:after {
-    content: " ";
-    display: block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border-radius: 50%;
-    border: 6px solid var(--colorMain);
-    border-color: var(--colorMain) transparent var(--colorMain) transparent;
-    animation: lds-dual-ring 1.2s linear infinite;
+    &:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid var(--colorMain);
+        border-color: var(--colorMain) transparent var(--colorMain) transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
 }
 
 @keyframes lds-dual-ring {
@@ -352,10 +352,10 @@ div[data-type="game-box"] {
 
 .notify--type-1 {
     background-color: var(--bgMainColor) !important;
-}
 
-.notify--type-1 .notify__text, .notify--type-1 .notify__title {
-    color: var(--colorMain) !important;
+    .notify__text, .notify--type-1 .notify__title {
+        color: var(--colorMain) !important;
+    }
 }
 
 
@@ -363,23 +363,23 @@ button.updated, input.updated {
     border-color: var(--highlight);
     color: var(--highlight);
     position: relative;
-}
 
-button.updated::before, input.updated::before {
-    content: "\231B";
-    font-weight: normal;
+    &::before {
+        content: "\231B";
+        font-weight: normal;
+    }
 }
 
 #stream-status {
+    &.online {
+        color: var(--colorOnline);
+    }
+
+    &.offline {
+        color: var(--colorError);
+    }
 }
 
-#stream-status.online {
-    color: var(--colorOnline);
-}
-
-#stream-status.offline {
-    color: var(--colorError);
-}
 
 #stream-infos {
     display: none;
@@ -441,42 +441,48 @@ footer {
     vertical-align: middle;
     margin: 0;
     border-bottom: 1px solid var(--shadowColor);
+
+    &:nth-child(odd) {
+        background: var(--colorSecGray);
+    }
+
+    &.drag-sort-active {
+        background: transparent;
+        color: transparent;
+        border: 1px solid var(--colorMain);
+    }
+
+    &.added-new {
+        box-shadow: inset 2px 2px 5px var(--highlight), inset 2px -2px 5px var(--highlight), inset -2px -2px 5px var(--highlight);
+        animation: box-shadow-remove 1.5s normal forwards ease-in-out;
+        animation-iteration-count: 1;
+    }
 }
-.sortable:nth-child(odd) {
-    background: var(--colorSecGray);
-}
+
 .sortable > div {
     display: table-cell;
-}
-.sortable > div:nth-child(1) {
-    width: 30px;
-    cursor: grab;
-}
-.sortable > div:nth-child(1)::before {
-    content: "\2630";
-}
-.sortable > div:nth-child(2) {
-    width: 300px;
+
+    &:nth-child(1) {
+        width: 30px;
+        cursor: grab;
+
+        &::before {
+            content: "\2630";
+        }
+    }
+
+    &:nth-child(2) {
+        width: 300px;
+    }
 }
 
-.sortable.drag-sort-active {
-    background: transparent;
-    color: transparent;
-    border: 1px solid var(--colorMain);
-}
-
-.sortable.added-new {
-    box-shadow: inset 2px 2px 5px var(--highlight), inset 2px -2px 5px var(--highlight), inset -2px -2px 5px var(--highlight);
-    animation: box-shadow-remove 1.5s normal forwards ease-in-out;
-    animation-iteration-count: 1;
-}
 @keyframes box-shadow-remove {
-    0% {}
+    0% {
+    }
     100% {
         box-shadow: none;
     }
 }
-
 
 .timeout {
     width: 84px;
@@ -484,13 +490,13 @@ footer {
 
 .trash {
     cursor: pointer;
-}
 
-.trash::before {
-    content: "\1F5D1";
-    font-size: 20px;
-    padding: 0;
-    margin:0;
-    color: var(--colorMain);
-    text-shadow: 2px 2px 4px var(--shadowColor);
+    &::before {
+        content: "\1F5D1";
+        font-size: 20px;
+        padding: 0;
+        margin: 0;
+        color: var(--colorMain);
+        text-shadow: 2px 2px 4px var(--shadowColor);
+    }
 }
