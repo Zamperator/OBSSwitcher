@@ -1,7 +1,7 @@
 #### GERMAN VERSION BELOW
 ### *** Erläuterung:
 
-Das ist ein Mini-Projekt, zum automatischen Ändern von Spielen und Titeln, sowie wechseln von Szenen in OBS-Studio.
+Das ist ein Mini-Projekt, zum automatischen Ändern von Spielen und Titeln, sowie wechseln von Szenen in OBS-Studio, von dem ein Kumpel meinte "Geht nicht" - Challenge accepted. ^^
 
 ### *** Requirements:
 
